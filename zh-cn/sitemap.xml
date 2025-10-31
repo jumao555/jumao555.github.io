@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jumao555.github.io/</loc>
-    <lastmod>2025-10-30T21:00:02+08:00</lastmod>
+    <lastmod>2025-10-31T13:03:40+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -20,11 +20,11 @@
                 href="https://jumao555.github.io/"
                 />
   </url><url>
-    <loc>https://jumao555.github.io/p/myfirstblog/</loc>
-    <lastmod>2025-10-30T21:00:02+08:00</lastmod>
+    <loc>https://jumao555.github.io/p/newnew/</loc>
+    <lastmod>2025-10-31T13:03:40+08:00</lastmod>
   </url><url>
     <loc>https://jumao555.github.io/post/</loc>
-    <lastmod>2025-10-30T21:00:02+08:00</lastmod>
+    <lastmod>2025-10-31T13:03:40+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ar"
@@ -35,6 +35,12 @@
                 hreflang="zh-cn"
                 href="https://jumao555.github.io/post/"
                 />
+  </url><url>
+    <loc>https://jumao555.github.io/p/newnewnew/</loc>
+    <lastmod>2025-10-31T12:42:13+08:00</lastmod>
+  </url><url>
+    <loc>https://jumao555.github.io/p/myfirstblog/</loc>
+    <lastmod>2025-10-30T21:00:02+08:00</lastmod>
   </url><url>
     <loc>https://jumao555.github.io/categories/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
@@ -63,10 +69,10 @@
     <loc>https://jumao555.github.io/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jumao555.github.io/archives/</loc>
+    <loc>https://jumao555.github.io/page/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jumao555.github.io/page/</loc>
+    <loc>https://jumao555.github.io/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jumao555.github.io/tags/css/</loc>
@@ -139,9 +145,9 @@
     <loc>https://jumao555.github.io/p/emoji-support/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jumao555.github.io/search/</loc>
-  </url><url>
     <loc>https://jumao555.github.io/%E5%85%B3%E4%BA%8E/</loc>
+  </url><url>
+    <loc>https://jumao555.github.io/search/</loc>
   </url><url>
     <loc>https://jumao555.github.io/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/</loc>
   </url>
