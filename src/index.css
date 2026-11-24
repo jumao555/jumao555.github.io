@@ -1,0 +1,448 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =========================================================
+ * 通透毛玻璃 & 现代清新风主题系统 (灵感源自 Innei / Fuwari)
+ * 通过 --hue 一键驱动整站主色调、光晕、边框与微交互
+ * ========================================================= */
+:root {
+  --hue: 210;
+  --primary: hsl(var(--hue), 78%, 52%);
+  --primary-hover: hsl(var(--hue), 82%, 44%);
+  --primary-soft: hsla(var(--hue), 85%, 56%, 0.12);
+  --primary-soft-hover: hsla(var(--hue), 85%, 56%, 0.2);
+  --primary-border: hsla(var(--hue), 75%, 55%, 0.28);
+
+  --bg-page: hsl(var(--hue), 28%, 97%);
+  --bg-surface: rgba(255, 255, 255, 0.74);
+  --bg-surface-strong: rgba(255, 255, 255, 0.88);
+  --bg-nav: rgba(255, 255, 255, 0.68);
+  --border-glass: rgba(255, 255, 255, 0.85);
+  --border-subtle: hsla(var(--hue), 20%, 60%, 0.16);
+
+  --text-primary: #182230;
+  --text-secondary: #4c5a6e;
+  --text-muted: #7c8aa0;
+
+  --shadow-card: 0 8px 30px -12px hsla(var(--hue), 35%, 25%, 0.08),
+    0 1px 2px rgba(15, 23, 42, 0.03);
+  --shadow-card-hover: 0 18px 42px -14px hsla(var(--hue), 50%, 35%, 0.16),
+    0 2px 6px rgba(15, 23, 42, 0.04);
+  --shadow-nav: 0 10px 32px -12px hsla(var(--hue), 35%, 20%, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.dark {
+  --primary: hsl(var(--hue), 88%, 68%);
+  --primary-hover: hsl(var(--hue), 92%, 75%);
+  --primary-soft: hsla(var(--hue), 85%, 65%, 0.14);
+  --primary-soft-hover: hsla(var(--hue), 85%, 65%, 0.24);
+  --primary-border: hsla(var(--hue), 85%, 68%, 0.3);
+
+  --bg-page: hsl(var(--hue), 24%, 8%);
+  --bg-surface: rgba(20, 26, 38, 0.68);
+  --bg-surface-strong: rgba(24, 31, 46, 0.86);
+  --bg-nav: rgba(18, 24, 36, 0.72);
+  --border-glass: rgba(255, 255, 255, 0.09);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  --text-primary: #eef2f8;
+  --text-secondary: #a8b5c8;
+  --text-muted: #6e7d94;
+
+  --shadow-card: 0 10px 32px -12px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --shadow-card-hover: 0 20px 48px -14px hsla(var(--hue), 80%, 12%, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  --shadow-nav: 0 14px 36px -12px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC',
+      'Microsoft YaHei', sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.35s ease, color 0.25s ease;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--bg-page);
+  }
+
+  ::selection {
+    background-color: hsla(var(--hue), 85%, 60%, 0.26);
+    color: var(--text-primary);
+  }
+}
+
+.font-serif-title {
+  font-family: 'Noto Serif SC', 'Georgia', serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* 流动柔和氛围光晕背景 */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(95px);
+  opacity: 0.42;
+  transition: background 0.5s ease;
+}
+
+.dark .ambient-orb {
+  opacity: 0.22;
+}
+
+.ambient-orb-1 {
+  top: -120px;
+  left: -80px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, hsla(var(--hue), 90%, 72%, 0.72), transparent 70%);
+  animation: floatOrb 18s ease-in-out infinite alternate;
+}
+
+.ambient-orb-2 {
+  top: 22%;
+  right: -120px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, hsla(calc(var(--hue) + 38), 85%, 74%, 0.58), transparent 70%);
+  animation: floatOrb 22s ease-in-out infinite alternate-reverse;
+}
+
+.ambient-orb-3 {
+  bottom: -140px;
+  left: 28%;
+  width: 540px;
+  height: 420px;
+  background: radial-gradient(circle, hsla(calc(var(--hue) - 28), 82%, 75%, 0.48), transparent 70%);
+  animation: floatOrb 25s ease-in-out infinite alternate;
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  100% {
+    transform: translate(32px, 24px) scale(1.08);
+  }
+}
+
+/* 通透毛玻璃基础卡片 */
+.glass-card {
+  background: var(--bg-surface);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s ease,
+    background-color 0.28s ease;
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--primary-border);
+}
+
+.glass-nav {
+  background: var(--bg-nav);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-nav);
+}
+
+.glass-popover {
+  background: var(--bg-surface-strong);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 22px 54px -16px rgba(15, 23, 42, 0.22);
+}
+
+.dark .glass-popover {
+  box-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.65);
+}
+
+/* 主题色快捷类 */
+.text-accent {
+  color: var(--primary);
+}
+.bg-accent {
+  background-color: var(--primary);
+}
+.bg-accent-soft {
+  background-color: var(--primary-soft);
+}
+.border-accent {
+  border-color: var(--primary-border);
+}
+
+/* View Transitions 圆形扩散明暗切换 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+/* 自定义细腻滚动条 */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsla(var(--hue), 25%, 55%, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(var(--hue), 65%, 55%, 0.55);
+}
+
+/* 优雅中文 Markdown 文章排版 */
+.prose-article {
+  color: var(--text-primary);
+  font-size: 1.03rem;
+  line-height: 1.92;
+  letter-spacing: 0.015em;
+  word-break: break-word;
+}
+
+.prose-article > *:first-child {
+  margin-top: 0;
+}
+
+.prose-article h2 {
+  margin-top: 2.3rem;
+  margin-bottom: 1rem;
+  font-size: 1.48rem;
+  font-weight: 700;
+  line-height: 1.38;
+  scroll-margin-top: 6rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px dashed var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.prose-article h2::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 1.15em;
+  border-radius: 9999px;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+.prose-article h3 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 650;
+  line-height: 1.45;
+  scroll-margin-top: 6rem;
+}
+
+.prose-article p {
+  margin: 1.1rem 0;
+  color: var(--text-secondary);
+}
+
+.dark .prose-article p {
+  color: #cbd5e1;
+}
+
+.prose-article strong {
+  color: var(--text-primary);
+  font-weight: 650;
+}
+
+.prose-article a {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px dashed hsla(var(--hue), 78%, 55%, 0.45);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+.prose-article a:hover {
+  background-color: var(--primary-soft);
+  border-bottom-style: solid;
+}
+
+.prose-article ul,
+.prose-article ol {
+  margin: 1.1rem 0;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.dark .prose-article ul,
+.dark .prose-article ol {
+  color: #cbd5e1;
+}
+
+.prose-article ul {
+  list-style-type: disc;
+}
+
+.prose-article ol {
+  list-style-type: decimal;
+}
+
+.prose-article li {
+  margin: 0.45rem 0;
+}
+
+.prose-article li::marker {
+  color: var(--primary);
+}
+
+.prose-article blockquote {
+  margin: 1.4rem 0;
+  padding: 0.9rem 1.25rem;
+  border-left: 3.5px solid var(--primary);
+  border-radius: 0 0.85rem 0.85rem 0;
+  background: var(--primary-soft);
+  color: var(--text-secondary);
+}
+
+.prose-article blockquote p {
+  margin: 0.25rem 0;
+}
+
+.prose-article :not(pre) > code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.86em;
+  padding: 0.18em 0.45em;
+  border-radius: 0.42rem;
+  background: var(--primary-soft);
+  color: var(--primary-hover);
+  border: 1px solid hsla(var(--hue), 75%, 55%, 0.16);
+}
+
+.dark .prose-article :not(pre) > code {
+  color: hsl(var(--hue), 90%, 76%);
+}
+
+.prose-article hr {
+  margin: 2rem 0;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+}
+
+.prose-article img {
+  margin: 1.5rem auto;
+  border-radius: 1rem;
+  box-shadow: 0 12px 32px -12px rgba(15, 23, 42, 0.22);
+  max-width: 100%;
+}
+
+.prose-article table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 0.85rem;
+  border: 1px solid var(--border-subtle);
+  font-size: 0.94rem;
+}
+
+.prose-article th {
+  background: var(--primary-soft);
+  color: var(--text-primary);
+  text-align: left;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+}
+
+.prose-article td {
+  padding: 0.72rem 1rem;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+/* Highlight.js 精致暗色代码块配色 */
+.hljs {
+  color: #e2e8f0;
+  background: transparent;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #7c8ca6;
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #c084fc;
+}
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp {
+  color: #7dd3fc;
+}
+.hljs-title,
+.hljs-section,
+.hljs-function .hljs-title {
+  color: #60a5fa;
+}
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable {
+  color: #fbbf24;
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-property {
+  color: #38bdf8;
+}
+.hljs-built_in,
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #34d399;
+}
+.hljs-tag,
+.hljs-name {
+  color: #f472b6;
+}
+.hljs-punctuation,
+.hljs-operator {
+  color: #94a3b8;
+}
