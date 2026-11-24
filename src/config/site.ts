@@ -100,14 +100,14 @@ export const SITE_CONFIG = {
   ] as ProjectItem[],
 
   techStack: [
-    'TypeScript',
-    'React',
-    'Vite',
-    'Tailwind CSS',
-    'Framer Motion',
-    'Node.js',
-    'Git & GitHub Actions',
-    'UI/UX Design',
+    'Kotlin',
+    'Java',
+    'Jetpack Compose',
+    'Android SDK',
+    'Coroutines & Flow',
+    'Retrofit & OkHttp',
+    'MVVM & Jetpack',
+    'Git & Gradle',
   ],
 
   timeline: [
