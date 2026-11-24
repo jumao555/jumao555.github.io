@@ -24,7 +24,7 @@ export const SITE_CONFIG = {
   subtitle: '在代码与光影之间，记录值得回味的思考与作品',
   author: 'Jumao',
   handle: '@jumao555',
-  bio: '热爱优雅设计与现代 Web 工程的开发者，探索 AI、交互美学与高效工具。',
+  bio: '目前是一名大二学生，主攻 Android 客户端开发，同时持续探索 AI Agent 的设计与实践。',
   location: 'China',
   statusText: '正在打磨新想法 ✨',
   avatar: '/images/avatar.jpg',

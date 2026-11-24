@@ -40,7 +40,7 @@ export function AboutPage() {
 
             <p className="mt-3 text-sm sm:text-[15px] leading-relaxed text-[var(--text-secondary)]">
               {SITE_CONFIG.bio}
-              这里是我用代码搭起的一座通透数字花园——分享前端开发、视觉微交互、AI 工具实践以及日常思考。
+              这里是我用代码搭起的一座数字花园——记录移动端开发心得、Agent 学习笔记，以及成长路上的技术思考与日常。
             </p>
 
             <div className="mt-5 flex items-center justify-center sm:justify-start flex-wrap gap-3 text-xs sm:text-sm text-[var(--text-muted)]">
