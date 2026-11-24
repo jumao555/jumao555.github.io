@@ -137,15 +137,19 @@ export function HomePage() {
           {filteredPosts.length === 0 ? (
             <div className="glass-card rounded-3xl p-12 text-center">
               <p className="text-[var(--text-secondary)] text-sm">
-                当前筛选条件下还没有文章。
+                {allPosts.length === 0
+                  ? '暂时还没有发布文章，新的思考正在路上 ✨'
+                  : '当前筛选条件下还没有文章。'}
               </p>
-              <button
-                type="button"
-                onClick={clearFilter}
-                className="mt-4 px-4 py-2 rounded-xl bg-accent text-white text-sm font-medium cursor-pointer"
-              >
-                查看全部文章
-              </button>
+              {allPosts.length > 0 && (
+                <button
+                  type="button"
+                  onClick={clearFilter}
+                  className="mt-4 px-4 py-2 rounded-xl bg-accent text-white text-sm font-medium cursor-pointer"
+                >
+                  查看全部文章
+                </button>
+              )}
             </div>
           ) : (
             filteredPosts.map((post, idx) => (

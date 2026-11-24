@@ -80,7 +80,12 @@ export function ArchivesPage() {
 
         {/* 仿 Fuwari 清爽虚线时间轴 */}
         <div className="space-y-9">
-          {groupedByYear.map(([year, posts]) => (
+          {groupedByYear.length === 0 ? (
+            <p className="text-sm text-[var(--text-muted)] py-6 text-center">
+              暂时还没有可归档的文章。
+            </p>
+          ) : (
+            groupedByYear.map(([year, posts]) => (
             <section key={year}>
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-2xl font-bold font-mono-code text-[var(--text-primary)]">
@@ -126,7 +131,8 @@ export function ArchivesPage() {
                 ))}
               </div>
             </section>
-          ))}
+          ))
+          )}
         </div>
       </motion.div>
     </div>

@@ -123,36 +123,40 @@ export function Sidebar({ activeCategory, activeTag }: SidebarProps) {
           <h3 className="text-sm font-semibold text-[var(--text-primary)]">文章分类</h3>
         </div>
         <div className="space-y-1">
-          {categories.map((cat) => {
-            const active = activeCategory === cat.name;
-            return (
-              <button
-                key={cat.name}
-                type="button"
-                onClick={() =>
-                  navigate(
-                    active ? '/' : `/?category=${encodeURIComponent(cat.name)}`
-                  )
-                }
-                className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm transition-all cursor-pointer ${
-                  active
-                    ? 'bg-accent-soft text-accent font-medium'
-                    : 'text-[var(--text-secondary)] hover:bg-black/4 dark:hover:bg-white/6 hover:text-[var(--text-primary)] hover:pl-4'
-                }`}
-              >
-                <span>{cat.name}</span>
-                <span
-                  className={`text-xs font-mono-code px-2 py-0.5 rounded-lg ${
+          {categories.length === 0 ? (
+            <p className="text-xs text-[var(--text-muted)] px-1 py-1">暂无分类</p>
+          ) : (
+            categories.map((cat) => {
+              const active = activeCategory === cat.name;
+              return (
+                <button
+                  key={cat.name}
+                  type="button"
+                  onClick={() =>
+                    navigate(
+                      active ? '/' : `/?category=${encodeURIComponent(cat.name)}`
+                    )
+                  }
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm transition-all cursor-pointer ${
                     active
-                      ? 'bg-accent text-white'
-                      : 'bg-black/5 dark:bg-white/8 text-[var(--text-muted)]'
+                      ? 'bg-accent-soft text-accent font-medium'
+                      : 'text-[var(--text-secondary)] hover:bg-black/4 dark:hover:bg-white/6 hover:text-[var(--text-primary)] hover:pl-4'
                   }`}
                 >
-                  {cat.count}
-                </span>
-              </button>
-            );
-          })}
+                  <span>{cat.name}</span>
+                  <span
+                    className={`text-xs font-mono-code px-2 py-0.5 rounded-lg ${
+                      active
+                        ? 'bg-accent text-white'
+                        : 'bg-black/5 dark:bg-white/8 text-[var(--text-muted)]'
+                    }`}
+                  >
+                    {cat.count}
+                  </span>
+                </button>
+              );
+            })
+          )}
         </div>
       </div>
 
@@ -164,25 +168,29 @@ export function Sidebar({ activeCategory, activeTag }: SidebarProps) {
           <h3 className="text-sm font-semibold text-[var(--text-primary)]">热门标签</h3>
         </div>
         <div className="flex flex-wrap gap-1.5">
-          {tags.map((tag) => {
-            const active = activeTag === tag.name;
-            return (
-              <button
-                key={tag.name}
-                type="button"
-                onClick={() =>
-                  navigate(active ? '/' : `/?tag=${encodeURIComponent(tag.name)}`)
-                }
-                className={`px-2.5 py-1 rounded-xl text-xs transition-all cursor-pointer ${
-                  active
-                    ? 'bg-accent text-white shadow-sm'
-                    : 'bg-accent-soft text-[var(--text-secondary)] hover:text-accent hover:scale-105'
-                }`}
-              >
-                # {tag.name}
-              </button>
-            );
-          })}
+          {tags.length === 0 ? (
+            <p className="text-xs text-[var(--text-muted)] px-1 py-1">暂无标签</p>
+          ) : (
+            tags.map((tag) => {
+              const active = activeTag === tag.name;
+              return (
+                <button
+                  key={tag.name}
+                  type="button"
+                  onClick={() =>
+                    navigate(active ? '/' : `/?tag=${encodeURIComponent(tag.name)}`)
+                  }
+                  className={`px-2.5 py-1 rounded-xl text-xs transition-all cursor-pointer ${
+                    active
+                      ? 'bg-accent text-white shadow-sm'
+                      : 'bg-accent-soft text-[var(--text-secondary)] hover:text-accent hover:scale-105'
+                  }`}
+                >
+                  # {tag.name}
+                </button>
+              );
+            })
+          )}
         </div>
       </div>
     </aside>

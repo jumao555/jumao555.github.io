@@ -61,41 +61,42 @@ export const SITE_CONFIG = {
 
   projects: [
     {
-      name: "Jumao's Space",
+      name: 'TronClass-Plus',
       description:
-        '采用通透毛玻璃美学与动态色相系统打造的个人博客，基于 Vite + React + Markdown 构建，自动部署于 GitHub Pages。',
-      tags: ['React 19', 'Vite', 'Tailwind v4', 'Glassmorphism'],
-      repoUrl: 'https://github.com/jumao555/jumao555.github.io',
-      demoUrl: 'https://jumao555.github.io',
+        '基于 Flutter 改造的 TronClass 校园客户端（重庆邮电大学适配版），完成重邮 CAS 统一身份认证与门户会话适配，修复登录页生命周期问题并加入手机端扫码诊断与异常记录。',
+      tags: ['Flutter', 'Dart', 'Android', 'CAS Auth'],
+      repoUrl: 'https://github.com/jumao555/TronClass-Plus',
+      demoUrl: 'https://github.com/jumao555/TronClass-Plus/releases',
       status: 'Active',
       accentHue: 210,
     },
     {
-      name: 'Lumina Notes',
+      name: 'StudyAgent',
       description:
-        '一款面向开发者的轻量化双链笔记实验项目，支持本地 Markdown 双向引用、快捷键命令面板与极速全文检索。',
-      tags: ['TypeScript', 'Local-First', 'Markdown'],
-      repoUrl: 'https://github.com/jumao555',
+        '基于 Python 与 OpenAI Function Calling 打造的学习笔记检索 Agent，支持目录浏览、多关键词评分检索与按行读取上下文，并基于 SQLite 实现多轮对话状态持久化。',
+      tags: ['Python', 'AI Agent', 'Tool Use', 'SQLite'],
+      repoUrl: 'https://github.com/jumao555/StudyAgent',
       status: 'Building',
       accentHue: 172,
     },
     {
-      name: 'Prism UI Kit',
+      name: 'SunnyWeather',
       description:
-        '围绕细腻微交互、毛玻璃层次感与无障碍键盘导航设计的精巧前端组件集合，专注桌面与移动端的顺滑手感。',
-      tags: ['Framer Motion', 'Design System', 'CSS'],
-      repoUrl: 'https://github.com/jumao555',
+        '《第一行代码》Android 实战天气应用，基于 Kotlin 与 MVVM 架构，结合 Retrofit、ViewModel、LiveData 与协程实现城市搜索及实时、多日天气预报展示。',
+      tags: ['Kotlin', 'Android', 'MVVM', 'Retrofit'],
+      repoUrl: 'https://github.com/jumao555/SunnyWeather',
       status: 'Active',
-      accentHue: 262,
+      accentHue: 28,
     },
     {
-      name: 'Prompt Craft Studio',
+      name: "Jumao's Space",
       description:
-        '用于日常整理与对比结构化 Prompt 模板的小工具，支持变量填充、版本记录与一键导出 Markdown。',
-      tags: ['AI Workflow', 'React', 'Productivity'],
-      repoUrl: 'https://github.com/jumao555',
-      status: 'Building',
-      accentHue: 336,
+        '采用通透毛玻璃美学与动态色相系统打造的个人博客，基于 Vite + React 19 + TypeScript + Tailwind CSS v4 构建，通过 GitHub Actions 自动部署于 GitHub Pages。',
+      tags: ['React 19', 'TypeScript', 'Tailwind v4', 'GitHub Pages'],
+      repoUrl: 'https://github.com/jumao555/jumao555.github.io',
+      demoUrl: 'https://jumao555.github.io',
+      status: 'Active',
+      accentHue: 262,
     },
   ] as ProjectItem[],
 

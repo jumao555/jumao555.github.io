@@ -19,7 +19,7 @@ export function ProjectsPage() {
           精选项目
         </h1>
         <p className="mt-2 text-sm sm:text-base text-[var(--text-secondary)]">
-          一些正在打磨的开源作品、效率工具与前端设计实验。
+          一些正在打磨的开源仓库、Android 客户端实践与 AI Agent 学习项目。
         </p>
       </motion.div>
 

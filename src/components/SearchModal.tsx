@@ -104,7 +104,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
             <div className="max-h-[55vh] overflow-y-auto p-2.5">
               {results.length === 0 ? (
                 <div className="py-12 text-center text-sm text-[var(--text-muted)]">
-                  没有找到包含 “{query}” 的文章
+                  {query ? `没有找到包含 “${query}” 的文章` : '暂时还没有可搜索的文章'}
                 </div>
               ) : (
                 <ul className="space-y-1">
